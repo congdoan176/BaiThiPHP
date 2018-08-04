@@ -11,6 +11,7 @@
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
+Route::get('view', function () {
+    return view('apartment');
 });
+Route::resource('view/apartment', 'ApartmentsController');
