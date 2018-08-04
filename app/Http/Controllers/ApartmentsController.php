@@ -15,12 +15,13 @@ class ApartmentsController extends Controller
      */
     public function index()
     {
-        $limit = 10;
+        $limit = 6;
         if(Input::has('limit')){
             $limit = Input::get('limit');
         }
-        $apartments = Apartmentm::all();
-        return view('apartment')->with('apartment_view',$apartments);
+        $list_obj = Apartmentm::paginate($limit);
+        //
+        return view('apartment')->with('list_obj', $list_obj);
     }
 
     /**
